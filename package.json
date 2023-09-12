@@ -1,12 +1,10 @@
 {
   "name": "api-crud-employee",
   "version": "1.0.0",
-  "description": "echo # api-crud-employee",
+  "description": "API-CRUD-EMPLOYEE",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "José Lucas ** wwwd d.instagram.com/joselucasz_",
+  "license": "MIT"
 }
