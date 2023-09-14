@@ -12,11 +12,12 @@ exports.createEmployee = async (req, res) => {
       employee_registration,
       employee_jobrole,
     } = req.body;
-    const { rows } = db.query(
+    const { rows } = await db.query(
       "INSERT INTO employee(employee_name,employee_salary,employee_registration,employee_jobrole) VALUES($1,$2,$3,$4)",
       [employee_name, employee_salary, employee_registration, employee_jobrole]
     );
     res.status(201).send({
+      test: rows,
       message: "great, create a new employee !",
       body: {
         employee_name,
@@ -27,8 +28,24 @@ exports.createEmployee = async (req, res) => {
     });
   } catch (error) {
     console.error("Create Employee", error);
-    res.status(500).res.send({
+    res.status(500).send({
       message: "error in create new employee",
+    });
+  }
+};
+
+// method reponsible for list all employees
+exports.listAllEmployees = async (req, res) => {
+  try {
+    const { rows } = await db.query(
+      "SELECT * FROM employee ORDER BY employee_name asc"
+    );
+
+    res.status(200).send(rows);
+  } catch (error) {
+    console.error("listAllEmployees", error);
+    res.status(500).send({
+      message: "error in list All Employees",
     });
   }
 };

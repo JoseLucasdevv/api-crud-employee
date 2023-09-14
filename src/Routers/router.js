@@ -1,10 +1,10 @@
 const router = require("express-promise-router")();
 const employeeController = require("../Controllers/employeeController");
 
-// router responsible for create user
+// router responsible for create employee
 router.post("/employee", employeeController.createEmployee);
 
-router.get("/employee", (req, res) => {
-  res.send("teste router :))");
-});
+// router responsible for list all employees
+router.get("/employee", employeeController.listAllEmployees);
+
 module.exports = router;
