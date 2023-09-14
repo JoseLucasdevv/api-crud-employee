@@ -13,8 +13,7 @@ pool.on("error", (err, client) => {
   process.exit(-1);
 });
 
-pool.on("connect", (client) => {
-  console.log(client);
+pool.on("connect", () => {
   console.log("database connect");
 });
 
