@@ -49,3 +49,21 @@ exports.listAllEmployees = async (req, res) => {
     });
   }
 };
+
+// method responsible for list employee By ID
+exports.listEmployeeById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const { rows } = await db.query(
+      "SELECT * FROM employee WHERE employee_id = $1",
+      [id]
+    );
+    res.status(200).send(rows);
+  } catch (error) {
+    console.error("listEmployeeById", error);
+    res.status(500).send({
+      message: "error in listEmployeeById",
+    });
+  }
+};
