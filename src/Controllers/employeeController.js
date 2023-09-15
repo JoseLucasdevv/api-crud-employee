@@ -79,7 +79,7 @@ exports.updateEmployee = async (req, res) => {
     employee_jobrole,
   } = req.body;
   try {
-    const { rows } = db.query(
+    const { rows } = await db.query(
       "UPDATE employee SET employee_name = $1,employee_salary = $2 , employee_registration = $3,employee_jobrole = $4 WHERE employee_id = $5 ",
       [
         employee_name,

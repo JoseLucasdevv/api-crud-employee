@@ -6,7 +6,15 @@
   "scripts": {
     "start": "nodemon server.js"
   },
-  "keywords": [],
+  "keywords": [
+    "API",
+    "BACK-END",
+    "CRUD",
+    "postgres",
+    "sql",
+    "node",
+    "express"
+  ],
   "author": "José Lucas ** www.instagram.com/joselucasz_",
   "license": "MIT",
   "dependencies": {
