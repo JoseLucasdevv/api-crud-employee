@@ -106,9 +106,10 @@ exports.updateEmployee = async (req, res) => {
 exports.deleteEmployeeById = async (req, res) => {
   const { id } = req.params;
   try {
-    const { rows } = db.query("DELETE from employee WHERE employee_id = $1", [
-      id,
-    ]);
+    const { rows } = await db.query(
+      "DELETE from employee WHERE employee_id = $1",
+      [id]
+    );
     res.status(200).send({
       message: "success delete employee",
     });

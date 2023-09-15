@@ -4,6 +4,7 @@ const express = require("express");
 
 const router = express.Router();
 
+// router server side API "welcome"
 router.get("/api", (req, res) => {
   res.status(200).send({
     message: "welcome to API Node.js",
