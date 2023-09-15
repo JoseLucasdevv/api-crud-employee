@@ -67,3 +67,36 @@ exports.listEmployeeById = async (req, res) => {
     });
   }
 };
+
+// method responsible for update Employee By ID
+
+exports.updateEmployee = async (req, res) => {
+  const { id } = req.params;
+  const {
+    employee_name,
+    employee_salary,
+    employee_registration,
+    employee_jobrole,
+  } = req.body;
+  try {
+    const { rows } = db.query(
+      "UPDATE employee SET employee_name = $1,employee_salary = $2 , employee_registration = $3,employee_jobrole = $4 WHERE employee_id = $5 ",
+      [
+        employee_name,
+        employee_salary,
+        employee_registration,
+        employee_jobrole,
+        id,
+      ]
+    );
+    res.status(200).send({
+      message: "Employee Update sucess",
+      res: rows,
+    });
+  } catch (error) {
+    console.error("updateEmployee", error);
+    res.status(500).send({
+      message: "fail Update Employee",
+    });
+  }
+};

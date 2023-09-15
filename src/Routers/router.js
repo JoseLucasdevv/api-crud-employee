@@ -8,7 +8,9 @@ router.post("/employee", employeeController.createEmployee);
 router.get("/employee", employeeController.listAllEmployees);
 
 // router responsible for list employee by ID
-
 router.get("/employee/:id", employeeController.listEmployeeById);
+
+// router responsible for update employee by ID
+router.put("/employee/:id", employeeController.updateEmployee);
 
 module.exports = router;
