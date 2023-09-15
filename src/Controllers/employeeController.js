@@ -100,3 +100,22 @@ exports.updateEmployee = async (req, res) => {
     });
   }
 };
+
+// method responsible for delete employee by id
+
+exports.deleteEmployeeById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const { rows } = db.query("DELETE from employee WHERE employee_id = $1", [
+      id,
+    ]);
+    res.status(200).send({
+      message: "success delete employee",
+    });
+  } catch (error) {
+    console.error("deleteEmployeeById", error);
+    res.status(500).send({
+      message: "deleteEmployee Fail",
+    });
+  }
+};

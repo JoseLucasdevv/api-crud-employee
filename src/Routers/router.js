@@ -13,4 +13,7 @@ router.get("/employee/:id", employeeController.listEmployeeById);
 // router responsible for update employee by ID
 router.put("/employee/:id", employeeController.updateEmployee);
 
+// router responsible for delete employee by ID
+router.delete("/employee/:id", employeeController.deleteEmployeeById);
+
 module.exports = router;
